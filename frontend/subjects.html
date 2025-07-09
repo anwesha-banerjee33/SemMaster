@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SemMaster - Subjects</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 min-h-screen flex flex-col items-center p-8 text-white">
+
+  <h1 id="semester-title" class="text-4xl font-bold mb-10">Subjects for Semester</h1>
+
+  <div id="subjects-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">
+    <!-- Subject cards will appear here -->
+  </div>
+
+  <footer class="mt-12 text-sm text-white/80">
+    &copy; 2025 SemMaster. Empowering ECE studies.
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const semester = params.get('semester');
+
+    document.getElementById('semester-title').textContent = `Subjects for Semester ${semester}`;
+
+    const dummySubjects = {
+      3: ["Mathematics III", "Signals & Systems", "Data Structures and Algorithm", "Semiconductor Devices", "Analog Electronics Circuits- I", "Network Analysis and Synthesis"],
+      4: ["Analog Electronic Circuits-II", "Control Systems", "Electromagnetic Theory and Antennas", "Probability and Random Processes", "Digital Electronics", "Engineering Economics and Accounts"],
+      5: ["Digital Signal Processing", "Industrial Management","Analog and Digital Communication", "Electronic Instrumentataion and Measurement", "Microprocessors and Microcontroller"],
+      6: ["VLSI Technology","Information Theory and Coding", "Microwave Engineering", "Optical Fibre Communication", "Data Communication Networks"],
+      7: ["Wireless Communication", "Elective-I(Departmental)", "Elective-II(Departmental/Open)"],
+      8: ["Elective-IV(Departmental)", "Elective-V(Departmental/Open)", "Elective-I(Departmental/Open)"]
+    };
+
+    const subjects = dummySubjects[semester] || [];
+
+    const container = document.getElementById('subjects-container');
+    subjects.forEach(subject => {
+      const card = document.createElement('a');
+      card.href = `subject-details.html?semester=${semester}&subject=${encodeURIComponent(subject)}`;
+      card.className = `
+        bg-white text-indigo-700 rounded-2xl shadow-lg p-8 text-center font-semibold text-lg
+        hover:scale-105 hover:bg-indigo-100 transition transform
+      `;
+      card.innerHTML = `
+        <div class="mb-4 text-3xl">📘</div>
+        ${subject}
+      `;
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
