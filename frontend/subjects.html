@@ -11,7 +11,7 @@
   <h1 id="semester-title" class="text-4xl font-bold mb-10">Subjects for Semester</h1>
 
   <div id="subjects-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-5xl">
-    <!-- Subject cards will appear here -->
+    
   </div>
 
   <footer class="mt-12 text-sm text-white/80">
@@ -25,12 +25,36 @@
     document.getElementById('semester-title').textContent = `Subjects for Semester ${semester}`;
 
     const dummySubjects = {
-      3: ["Mathematics III", "Signals & Systems", "Data Structures and Algorithm", "Semiconductor Devices", "Analog Electronics Circuits- I", "Network Analysis and Synthesis"],
-      4: ["Analog Electronic Circuits-II", "Control Systems", "Electromagnetic Theory and Antennas", "Probability and Random Processes", "Digital Electronics", "Engineering Economics and Accounts"],
-      5: ["Digital Signal Processing", "Industrial Management","Analog and Digital Communication", "Electronic Instrumentataion and Measurement", "Microprocessors and Microcontroller"],
-      6: ["VLSI Technology","Information Theory and Coding", "Microwave Engineering", "Optical Fibre Communication", "Data Communication Networks"],
-      7: ["Wireless Communication", "Elective-I(Departmental)", "Elective-II(Departmental/Open)"],
-      8: ["Elective-IV(Departmental)", "Elective-V(Departmental/Open)", "Elective-I(Departmental/Open)"]
+      3: [
+        "Mathematics III", 
+        "Signals & Systems", 
+        "Data Structures and Algorithm", 
+        "Semiconductor Devices", 
+        "Analog Electronics Circuits-I", 
+        "Network Analysis and Synthesis"
+      ],
+      4: [
+        "Analog Electronic Circuits-II", 
+        "Control Systems", 
+        "Electromagnetic Theory and Antennas", 
+        "Probability and Random Processes", 
+        "Digital Electronics", 
+        "Engineering Economics and Accounts"
+      ],
+      5: [
+        "Digital Signal Processing", 
+        "Industrial Management", 
+        "Analog and Digital Communication", 
+        "Electronic Instrumentation and Measurement", 
+        "Microprocessors and Microcontroller"
+      ],
+      6: [
+        "VLSI Technology",
+        "Information Theory and Coding", 
+        "Microwave Engineering", 
+        "Optical Fibre Communication", 
+        "Data Communication Networks"
+      ]
     };
 
     const subjects = dummySubjects[semester] || [];
